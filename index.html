@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<body>
+  <style>
+  div.outerContainer {
+    outline: 1px solid grey;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .button {
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  margin-left: 30%;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 4px;
+  margin-right:  2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: lightblue; 
+  color: black; 
+}
+.button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+  </style>
+
+  <div style="width: 100%; padding-bottom: 20px;">
+    <!-- <img src="https://img.favpng.com/23/25/1/discounts-and-allowances-sales-art-price-shopping-png-favpng-et9HAnv7YB2HXcee6njDcCGWm.jpg"
+      style='height: 100%; width: 100%;'> -->
+    <h3>Hi,</h3>
+    <p>
+      <b>Greetings from fashion-club!</b>
+      We are India's largest online fashion store. We offer the latest and authentic products
+      from over 300 brands.<br>
+      We provide <b>FREE SHIPPING</b> with an option to pay <b>CASH ON DELIVERY</b>.<br><br>
+      <h3 style="color:blue;">Our monsoon season sale is live now!</h3>
+    </p>
+    <p>AND We have some special offers for you.<br>
+      Click on the below offers to choose from a closet of 1000s of products specially curated for you!
+    </p>
+  </div>
+
+  <div class="outerContainer">
+    <!-- Band Description -->
+    <section class="container" style="text-align: center; margin: 50px 0px 50px 0px;">
+      <h2 style="color:grey;">End of Season Sale</h2>
+      <p style="color:grey;">
+        Stretch your budget with no cost EMI. <br>
+        Free delivery on your first order of any value.
+      </p>
+    </section>
+
+    <!-- Band Members -->
+    <div id="photoGrid" class="row" style="display: flex;margin-bottom: 50px;">
+      <div class="column" style="margin-left: 50px;">
+        <a href="http://fashion-club-mpa150-ga.test.dev-personalization.awsnp/index.html">
+          <img src="https://i.pinimg.com/564x/b1/a4/1e/b1a41e43bbb821efcba0b77103736a5e.jpg" alt="Random Name"
+            style="width:350px; height:300px;">
+        </a>
+        <p>Flat 50% sale on global desi.</p>
+        <a href="https://kzky1zmwyi.execute-api.us-east-1.amazonaws.com/services/decision-engine?zone_reg_id=WelcomeBannerZone&rec_id=1234&strategy_id=5678">
+          <button class="button"> Explore </button>
+        </a>
+      </div>
+      <div class="column" style="margin-left: 100px;">
+        <a href="http://fashion-club-mpa150-ga.test.dev-personalization.awsnp/index.html">
+          <img src="https://lsco.scene7.com/is/image/lsco/18_H1_Zen_501_Orig_Skinny_01_Desktop?$full%2Djpeg$&fmt=pjpeg"
+            alt="Random Name" style="width:100%; height:300px;">
+        </a>
+        <p>Upto 40% off on Levis.</p>
+        <a href="https://kzky1zmwyi.execute-api.us-east-1.amazonaws.com/services/decision-engine?zone_reg_id=WelcomeBannerZone&rec_id=1234&strategy_id=5678">
+          <button class="button"> Explore </button>
+        </a>
+      </div>
+      <div class="column" style="margin: 0px 50px 0px 100px;">
+        <a href="http://fashion-club-mpa150-ga.test.dev-personalization.awsnp/index.html">
+          <img src="https://timesofindia.indiatimes.com/thumb/msid-74671552,width-1200,height-900,resizemode-4/.jpg"
+            alt="Random Name" style="width:100%; height:300px;">
+        </a>
+        <p>Flat 50%-80% off on all ethnic wear!</p>
+        <a href="https://kzky1zmwyi.execute-api.us-east-1.amazonaws.com/services/decision-engine?zone_reg_id=WelcomeBannerZone&rec_id=1234&strategy_id=5678">
+          <button class="button"> Explore </button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; margin-bottom: 50px;">
+    <p>
+      For more, visit our website at <a href="http://fashion-club-mpa150-ga.test.dev-personalization.awsnp/index.html"
+        target="_blank">fashion_club.com</a>
+    </p>
+  </footer>
+
+</body>
+<script>
+  function addImage(imageUrl, redirectUrl) {
+    var frame = document.getElementById('photoGrid');
+    //Add an anchor tag to add redirectional link
+    // var anchor = document.createElement("A");
+    // anchor.href = redirectUrl;
+    //Add an image to the anchor tag
+    var image = document.createElement("IMG");
+    image.src = imageUrl;
+    image.width = "350px";
+    image.height = "300px";
+    // anchor.appendChild(image);
+    frame.appendChild(image);
+  }
+  addImage("https://www.equinechronicle.com/wp-content/uploads/2019/04/Wonderwest-46.jpg", "http://fashion-club-mpa150-ga.test.dev-personalization.awsnp/index.html") 
+</script>
+
+</html>
