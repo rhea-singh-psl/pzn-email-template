@@ -7,7 +7,7 @@
 <body>
   <style>
   div.outerContainer {
-    outline: 1px solid grey;
+    outline: 1px solid lightgrey;
     padding-top: 20px;
     padding-bottom: 20px;
   }
@@ -39,7 +39,7 @@
       style='height: 100%; width: 100%;'> -->
     <h3>Hi,</h3>
     <p>
-      <b>Greetings from fashion-club!</b>
+      <b>Greetings from fashion-club!</b><br>
       We are India's largest online fashion store. We offer the latest and authentic products
       from over 300 brands.<br>
       We provide <b>FREE SHIPPING</b> with an option to pay <b>CASH ON DELIVERY</b>.<br><br>
@@ -106,20 +106,21 @@
 
 </body>
 <script>
+
   function addImage(imageUrl, redirectUrl) {
-    var frame = document.getElementById('photoGrid');
-    //Add an anchor tag to add redirectional link
-    // var anchor = document.createElement("A");
-    // anchor.href = redirectUrl;
-    //Add an image to the anchor tag
-    var image = document.createElement("IMG");
-    image.src = imageUrl;
-    image.width = "350px";
-    image.height = "300px";
-    // anchor.appendChild(image);
-    frame.appendChild(image);
+     //Add an anchor tag to add redirectional link
+    var anchor = document.createElement("a");
+    anchor.setAttribute("href", redirectUrl);
+    document.getElementById("photoGrid").appendChild(anchor);
+     //Add an image to the anchor tag
+    var elem = document.createElement("img");
+    elem.setAttribute("src", imageUrl);
+    elem.setAttribute("height", "300px");
+    elem.setAttribute("width", "350px");
+    anchor.appendChild(elem);
   }
-  addImage("https://www.equinechronicle.com/wp-content/uploads/2019/04/Wonderwest-46.jpg", "http://fashion-club-mpa150-ga.test.dev-personalization.awsnp/index.html") 
+  //addImage("https://www.equinechronicle.com/wp-content/uploads/2019/04/Wonderwest-46.jpg", "http://fashion-club-mpa150-ga.test.dev-personalization.awsnp/index.html") 
+  
 </script>
 
 </html>
