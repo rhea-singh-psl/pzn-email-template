@@ -35,8 +35,6 @@
   </style>
 
   <div style="width: 100%; padding-bottom: 20px;">
-    <!-- <img src="https://img.favpng.com/23/25/1/discounts-and-allowances-sales-art-price-shopping-png-favpng-et9HAnv7YB2HXcee6njDcCGWm.jpg"
-      style='height: 100%; width: 100%;'> -->
     <h3>Hi,</h3>
     <p>
       <b>Greetings from fashion-club!</b><br>
@@ -62,36 +60,6 @@
 
     <!-- Band Members -->
     <div id="photoGrid" class="row" style="display: flex;margin-bottom: 50px;">
-      <div class="column" style="margin-left: 50px;">
-        <a href="http://fashion-club-mpa150-ga.test.dev-personalization.awsnp/index.html">
-          <img src="https://i.pinimg.com/564x/b1/a4/1e/b1a41e43bbb821efcba0b77103736a5e.jpg" alt="Random Name"
-            style="width:350px; height:300px;">
-        </a>
-        <p>Flat 50% sale on global desi.</p>
-        <a href="https://kzky1zmwyi.execute-api.us-east-1.amazonaws.com/services/decision-engine?zone_reg_id=WelcomeBannerZone&rec_id=1234&strategy_id=5678">
-          <button class="button"> Explore </button>
-        </a>
-      </div>
-      <div class="column" style="margin-left: 100px;">
-        <a href="http://fashion-club-mpa150-ga.test.dev-personalization.awsnp/index.html">
-          <img src="https://lsco.scene7.com/is/image/lsco/18_H1_Zen_501_Orig_Skinny_01_Desktop?$full%2Djpeg$&fmt=pjpeg"
-            alt="Random Name" style="width:100%; height:300px;">
-        </a>
-        <p>Upto 40% off on Levis.</p>
-        <a href="https://kzky1zmwyi.execute-api.us-east-1.amazonaws.com/services/decision-engine?zone_reg_id=WelcomeBannerZone&rec_id=1234&strategy_id=5678">
-          <button class="button"> Explore </button>
-        </a>
-      </div>
-      <div class="column" style="margin: 0px 50px 0px 100px;">
-        <a href="http://fashion-club-mpa150-ga.test.dev-personalization.awsnp/index.html">
-          <img src="https://timesofindia.indiatimes.com/thumb/msid-74671552,width-1200,height-900,resizemode-4/.jpg"
-            alt="Random Name" style="width:100%; height:300px;">
-        </a>
-        <p>Flat 50%-80% off on all ethnic wear!</p>
-        <a href="https://kzky1zmwyi.execute-api.us-east-1.amazonaws.com/services/decision-engine?zone_reg_id=WelcomeBannerZone&rec_id=1234&strategy_id=5678">
-          <button class="button"> Explore </button>
-        </a>
-      </div>
     </div>
 
   </div>
@@ -106,21 +74,27 @@
 
 </body>
 <script>
-
-  function addImage(imageUrl, redirectUrl) {
+ 
+ function addImage(imageUrl) {
      //Add an anchor tag to add redirectional link
-    var anchor = document.createElement("a");
-    anchor.setAttribute("href", redirectUrl);
-    document.getElementById("photoGrid").appendChild(anchor);
+    var div = document.createElement("div");
+    div.setAttribute("class", "column");
+    div.setAttribute("style", "margin-left: 50px");
+    document.getElementById("photoGrid").appendChild(div);
      //Add an image to the anchor tag
     var elem = document.createElement("img");
     elem.setAttribute("src", imageUrl);
     elem.setAttribute("height", "300px");
     elem.setAttribute("width", "350px");
-    anchor.appendChild(elem);
-  }
-  //addImage("https://www.equinechronicle.com/wp-content/uploads/2019/04/Wonderwest-46.jpg", "http://fashion-club-mpa150-ga.test.dev-personalization.awsnp/index.html") 
-  
+    div.appendChild(elem);
+
+    elem.addEventListener('click', function(e) {
+      console.log("image clicked");
+    });
+ }
+  addImage("https://lsco.scene7.com/is/image/lsco/18_H1_Zen_501_Orig_Skinny_01_Desktop?$full%2Djpeg$&fmt=pjpeg");
+  addImage("https://timesofindia.indiatimes.com/thumb/msid-74671552,width-1200,height-900,resizemode-4/.jpg");
+  addImage("https://i.pinimg.com/564x/b1/a4/1e/b1a41e43bbb821efcba0b77103736a5e.jpg");
 </script>
 
 </html>
