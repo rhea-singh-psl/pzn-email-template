@@ -17,7 +17,7 @@
   color: white;
   padding: 12px 24px;
   text-align: center;
-  margin-left: 30%;
+  margin-left: 45%;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
@@ -25,11 +25,11 @@
   margin-right:  2px;
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: lightblue; 
+  background-color: rgb(16, 240, 173); 
   color: black; 
 }
 .button:hover {
-  background-color: #008CBA;
+  background-color: rgb(21, 168, 226);
   color: white;
 }
   </style>
@@ -58,10 +58,12 @@
       </p>
     </section>
 
-    <!-- Band Members -->
+     <!-- Band Members -->
     <div id="photoGrid" class="row" style="display: flex;margin-bottom: 50px;">
+      <img id="exampleImg" src="https://image.freepik.com/free-vector/blurred-spring-sale-concept_23-2148453074.jpg" style="width:550px;height:300px;margin-left:400px">
     </div>
-
+    <button class="button" onclick="loadProducts()"> Open Images </button>
+  </div>
   </div>
 
   <!-- Footer -->
@@ -83,7 +85,7 @@
     document.getElementById("photoGrid").appendChild(div);
      //Add an image to the anchor tag
     var elem = document.createElement("img");
-    elem.setAttribute("src", imageUrl);
+    elem.setAttribute("src", "data:image/bmp;base64," + imageUrl);
     elem.setAttribute("height", "300px");
     elem.setAttribute("width", "350px");
     div.appendChild(elem);
@@ -92,9 +94,24 @@
       console.log("image clicked");
     });
  }
-  addImage("https://lsco.scene7.com/is/image/lsco/18_H1_Zen_501_Orig_Skinny_01_Desktop?$full%2Djpeg$&fmt=pjpeg");
-  addImage("https://timesofindia.indiatimes.com/thumb/msid-74671552,width-1200,height-900,resizemode-4/.jpg");
-  addImage("https://i.pinimg.com/564x/b1/a4/1e/b1a41e43bbb821efcba0b77103736a5e.jpg");
+
+ function loadProducts(){
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "http://localhost:3000/", true);
+  xhr.onload = function (e) {
+  if ((xhr.readyState === 4) && (xhr.status === 200)) {
+    //remove the sample image present inside the div
+      var sampleImage = document.getElementById('exampleImg');
+      if(sampleImage)
+      {sampleImage.parentNode.removeChild(sampleImage);}
+    //dsiaply recommended products recivied from decision engine inside the div
+      let productInfo = JSON.parse(xhr.responseText);  
+      addImage(productInfo.snapshot);
+     }
+  };
+  xhr.send(); 
+ }
+  
 </script>
 
 </html>
