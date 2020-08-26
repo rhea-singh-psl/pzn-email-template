@@ -77,7 +77,7 @@
 </body>
 <script>
  
- function addImage(imageUrl) {
+ function addImage(productData) {
      //Add an anchor tag to add redirectional link
     var div = document.createElement("div");
     div.setAttribute("class", "column");
@@ -85,19 +85,19 @@
     document.getElementById("photoGrid").appendChild(div);
      //Add an image to the anchor tag
     var elem = document.createElement("img");
-    elem.setAttribute("src", "data:image/bmp;base64," + imageUrl);
+    elem.setAttribute("src", "data:image/bmp;base64," + productData.snapshot);
     elem.setAttribute("height", "300px");
     elem.setAttribute("width", "350px");
     div.appendChild(elem);
 
     elem.addEventListener('click', function(e) {
-      console.log("image clicked");
+      redirectToProductPage(productData.id);
     });
  }
 
  function loadProducts(){
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost:3000/", true);
+  xhr.open("GET", "http://localhost:3000/", true); //
   xhr.onload = function (e) {
   if ((xhr.readyState === 4) && (xhr.status === 200)) {
     //remove the sample image present inside the div
@@ -106,12 +106,17 @@
       {sampleImage.parentNode.removeChild(sampleImage);}
     //dsiaply recommended products recivied from decision engine inside the div
       let productInfo = JSON.parse(xhr.responseText);  
-      addImage(productInfo.snapshot);
+      addImage(productInfo);
      }
   };
   xhr.send(); 
  }
-  
+ 
+ function redirectToProductPage(productId){
+   var xhr = new XMLHttpRequest();
+   xhr.open("GET", "http://localhost:3000/product.html?id="+productId, true);
+   xhr.send();
+ }
 </script>
 
 </html>
