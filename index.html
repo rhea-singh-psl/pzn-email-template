@@ -113,9 +113,10 @@
  }
  
  function redirectToProductPage(productId){
-   var xhr = new XMLHttpRequest();
-   xhr.open("GET", "http://localhost:3000/product.html?id="+productId, true);
-   xhr.send();
+   window.open("http://localhost:3000/product.html?id="+productId);
+  //  var xhr = new XMLHttpRequest();
+  //  xhr.open("GET", "http://localhost:3000/product.html?id="+productId, true);
+  //  xhr.send();
  }
 </script>
 
