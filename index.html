@@ -49,7 +49,7 @@
   </div>
 
   <div class="outerContainer">
-    <!-- Band Description -->
+    <!-- Sale Description -->
     <section class="container" style="text-align: center; margin: 50px 0px 50px 0px;">
       <h2 style="color:grey;">End of Season Sale</h2>
       <p style="color:grey;">
@@ -58,11 +58,20 @@
       </p>
     </section>
 
-     <!-- Band Members -->
-    <div id="photoGrid" class="row" style="display: flex;margin-bottom: 50px;">
+     <!-- Sale Products -->
+    <!-- <div id="photoGrid" class="row" style="display: flex;margin-bottom: 50px;">
       <img id="exampleImg" src="https://image.freepik.com/free-vector/blurred-spring-sale-concept_23-2148453074.jpg" style="width:550px;height:300px;margin-left:400px">
     </div>
-    <button class="button" onclick="loadProducts()"> Open Images </button>
+    <button id="showButton" class="button" onclick="loadProducts()"> Open Images </button> -->
+
+    <div id="products" class="row" style="display: flex;margin-bottom: 50px;">
+      <a href="http://localhost:3000/api/redirect?id=a1b2c3&indexPosition=1">
+          <img src="http://localhost:3000/api/getContent?id=a1b2c3&indexPosition=1" />
+      </a> 
+      <a href="http://localhost:3000/api/redirect?id=a1b2c3&indexPosition=2">
+          <img src="http://localhost:3000/api/getContent?id=a1b2c3&indexPosition=2" />
+      </a> 
+      </div>
   </div>
   </div>
 
@@ -75,49 +84,5 @@
   </footer>
 
 </body>
-<script>
- 
- function addImage(productData) {
-     //Add an anchor tag to add redirectional link
-    var div = document.createElement("div");
-    div.setAttribute("class", "column");
-    div.setAttribute("style", "margin-left: 50px");
-    document.getElementById("photoGrid").appendChild(div);
-     //Add an image to the anchor tag
-    var elem = document.createElement("img");
-    elem.setAttribute("src", "data:image/bmp;base64," + productData.snapshot);
-    elem.setAttribute("height", "300px");
-    elem.setAttribute("width", "350px");
-    div.appendChild(elem);
-
-    elem.addEventListener('click', function(e) {
-      redirectToProductPage(productData.id);
-    });
- }
-
- function loadProducts(){
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost:3000/", true); //
-  xhr.onload = function (e) {
-  if ((xhr.readyState === 4) && (xhr.status === 200)) {
-    //remove the sample image present inside the div
-      var sampleImage = document.getElementById('exampleImg');
-      if(sampleImage)
-      {sampleImage.parentNode.removeChild(sampleImage);}
-    //dsiaply recommended products recivied from decision engine inside the div
-      let productInfo = JSON.parse(xhr.responseText);  
-      addImage(productInfo);
-     }
-  };
-  xhr.send(); 
- }
- 
- function redirectToProductPage(productId){
-   window.open("http://localhost:3000/product.html?id="+productId);
-  //  var xhr = new XMLHttpRequest();
-  //  xhr.open("GET", "http://localhost:3000/product.html?id="+productId, true);
-  //  xhr.send();
- }
-</script>
 
 </html>
