@@ -11,27 +11,6 @@
     padding-top: 20px;
     padding-bottom: 20px;
   }
-  
-  .button {
-  border: none;
-  color: white;
-  padding: 12px 24px;
-  text-align: center;
-  margin-left: 45%;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 4px;
-  margin-right:  2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  background-color: rgb(16, 240, 173); 
-  color: black; 
-}
-.button:hover {
-  background-color: rgb(21, 168, 226);
-  color: white;
-}
   </style>
 
   <div style="width: 100%; padding-bottom: 20px;">
@@ -65,11 +44,17 @@
     <button id="showButton" class="button" onclick="loadProducts()"> Open Images </button> -->
 
     <div id="products" class="row" style="display: flex;margin-bottom: 50px;">
-      <a href="http://localhost:3000/api/redirect?id=a1b2c3&indexPosition=1">
-          <img src="http://localhost:3000/api/getContent?id=a1b2c3&indexPosition=1" />
+      <a href="http://localhost:3000/api/redirect?id=83e49d9b-aed3-4941-8e36-e00e43aa3b75&indexPosition=0">
+          <img src="http://localhost:3000/api/getContent?id=83e49d9b-aed3-4941-8e36-e00e43aa3b75&indexPosition=0&recipientId=214808905451" style="height: 600px;
+        width: 500px;"/>
       </a> 
-      <a href="http://localhost:3000/api/redirect?id=a1b2c3&indexPosition=2">
-          <img src="http://localhost:3000/api/getContent?id=a1b2c3&indexPosition=2" />
+      <a href="http://localhost:3000/api/redirect?id=83e49d9b-aed3-4941-8e36-e00e43aa3b75&indexPosition=1">
+          <img src="http://localhost:3000/api/getContent?id=83e49d9b-aed3-4941-8e36-e00e43aa3b75&indexPosition=1&recipientId=214808905451" style="height: 600px;
+        width: 500px;"/>
+      </a> 
+      <a href="http://localhost:3000/api/redirect?id=83e49d9b-aed3-4941-8e36-e00e43aa3b75&indexPosition=2">
+          <img src="http://localhost:3000/api/getContent?id=83e49d9b-aed3-4941-8e36-e00e43aa3b75&indexPosition=2&recipientId=214808905451" style="height: 600px;
+        width: 500px;"/>
       </a> 
       </div>
   </div>
